@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import RealmSwift   // ←追加
 
 class ViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     
+    // Realmインスタンスを取得する
+    let realm = try! Realm()  // ←追加
+    
+    // DB内のタスクが格納されるリスト。
+    // 日付近い順\順でソート：降順
+    // 以降内容をアップデートするとリスト内は自動的に更新される。
+    let taskArray = try! Realm().objects(Task).sorted("date", ascending: false)   // ←追加
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +58,8 @@ class ViewController: UIViewController {
     // Delete ボタンが押された時に呼ばれるメソッド
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     }
+    
+    
 
 
 }
