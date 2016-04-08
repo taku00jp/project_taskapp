@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import RealmSwift
 
-class inputViewController: UIViewController {
+
+class InputViewController: UIViewController {
     
     
     @IBOutlet weak var titleTextField: UITextField!
@@ -30,7 +32,7 @@ class inputViewController: UIViewController {
         
         titleTextField.text = task.title
         contentsTextView.text = task.contents
-        datePicker.date = task.date
+        dataPicker.date = task.date
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,7 +44,7 @@ class inputViewController: UIViewController {
         try! realm.write {
             self.task.title = self.titleTextField.text!
             self.task.contents = self.contentsTextView.text
-            self.task.date = self.datePicker.date
+            self.task.date = self.dataPicker.date
             self.realm.add(self.task, update: true)
         }
         

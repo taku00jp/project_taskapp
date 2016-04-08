@@ -62,21 +62,25 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Mxq-Fu-lZO">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="s2b-cM-gYR"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="s2b-cM-gYR">
+                            <connections>
+                                <segue destination="p4V-Pw-XpW" kind="show" id="i8D-At-QL3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="Uqj-jL-Hda" id="343-2b-tMn"/>
-                        <segue destination="p4V-Pw-XpW" kind="show" id="aYE-zk-8JA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117" y="429"/>
+            <point key="canvasLocation" x="1031" y="323"/>
         </scene>
         <!--Input View Controller-->
         <scene sceneID="rml-ky-DXD">
             <objects>
-                <viewController id="p4V-Pw-XpW" customClass="inputViewController" customModule="taskapp1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="p4V-Pw-XpW" customClass="InputViewController" customModule="taskapp1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eD3-s0-FMY"/>
                         <viewControllerLayoutGuide type="bottom" id="JIB-S1-SIe"/>
@@ -145,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIK-XR-deh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="978" y="1245"/>
+            <point key="canvasLocation" x="981" y="1171"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="W8g-A4-Tqq">
