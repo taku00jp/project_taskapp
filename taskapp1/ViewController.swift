@@ -95,7 +95,27 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
-
+    // Delete ボタンが押された時に呼ばれるメソッド
+    func TableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            
+            // ローカル通知をキャンセルする
+            let task = taskArray[indexPath.row]
+            
+            for notification in UIApplication.sharedApplication().scheduledLocalNotifications! {
+                if notification.userInfo!["id"] as! Int == task.id {
+                    UIApplication.sharedApplication().cancelLocalNotification(notification)
+                    break
+                }
+            }
+            
+            // データベースから削除する
+            try! realm.write {
+                self.realm.delete(self.taskArray[indexPath.row])
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+            }
+        }
+    }
     
 
 }

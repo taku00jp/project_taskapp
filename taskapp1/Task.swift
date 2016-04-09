@@ -21,6 +21,14 @@ class Task: Object {
     /// 日時
     dynamic var date = NSDate()
     
+    //// 検索
+    dynamic var category = ""
+    
+
+    
+    
+    
+    
     /**
      id をプライマリーキーとして設定
      */
